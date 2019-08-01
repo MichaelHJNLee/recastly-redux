@@ -11,7 +11,7 @@ var SearchContainer = () => {};
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleSearchInputChange: () => dispatch(handleVideoSearch())
+    handleSearchInputChange: (e) => dispatch(handleVideoSearch(e))
   }
 }
 
