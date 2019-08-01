@@ -6,5 +6,14 @@ var VideoListContainer = () => {};
 
 //TODO: define a VideoListContainer component which will hook up your action
 // dispatchers with your VideoList component props.
-
-export default VideoListContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    handleVideoListEntryTitleClick: () => dispatch(changeVideo()),
+  }
+}
+const mapStateToProps = state => {
+  return {
+    videos: state.videoList
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(VideoListContainer);
