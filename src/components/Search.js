@@ -5,17 +5,19 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      value: ''
-    };
+    // this.state = {
+    //   value: ''
+    // };
   }
-
-  handleInputChange(e) {
-    this.props.getYouTubeVideos(e.target.value);
-    this.setState({
-      value: e.target.value
-    });
+  componentDidMount() {
+    this.props.handleSearchInputChange({target: {value: ''}});
   }
+  // handleInputChange(e) {
+  //   this.props.getYouTubeVideos(e.target.value);
+  //   this.setState({
+  //     value: e.target.value
+  //   });
+  // }
 
   render() {
     return (
@@ -23,8 +25,8 @@ class Search extends React.Component {
         <input
           className="form-control"
           type="text"
-          value={this.state.value}
-          onChange={this.props.handleSearchInputChange}
+          // value={this.state.value}
+          onChange={(e) => this.props.handleSearchInputChange(e.target.value)}
         />
         <button className="btn hidden-sm-down">
           <span className="glyphicon glyphicon-search"></span>
